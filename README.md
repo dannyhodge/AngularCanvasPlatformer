@@ -1,2 +1,2 @@
-# PlatformerPortfolio
-Portfolio with platformer built in
+# Angular Platformer
+A platformer built solely using Angular and the HTML Canvas
