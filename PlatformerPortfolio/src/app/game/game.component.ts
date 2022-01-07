@@ -36,16 +36,10 @@ export class GameComponent implements OnInit, AfterViewInit, OnChanges {
   ctx: CanvasRenderingContext2D | undefined;
 
   ngAfterViewInit(): void {
-    if (this.myCanvas == null) {
-      console.log('canvas null');
-    }
-
     this.ctx = this.myCanvas?.nativeElement.getContext('2d');
 
     if (this.ctx != null) {
       this.drawAll(this.ctx);
-    } else {
-      console.log('context null');
     }
 
     setInterval(() => {
@@ -60,7 +54,6 @@ export class GameComponent implements OnInit, AfterViewInit, OnChanges {
   }
 
   setObstacleInterval(): void {
-    console.log("here");
     this.obstacleInterval = setInterval(() => {
       this.createNewObstacle();
     }, this.randomObjectSpawnTime);
@@ -75,7 +68,6 @@ export class GameComponent implements OnInit, AfterViewInit, OnChanges {
   }
   @HostListener('window:resize', ['$event'])
   resizeCanvas(event: any): void {
-    console.log('Resize');
     if (this.ctx != null) {
       this.ctx.canvas.width = window.innerWidth;
       this.drawAll(this.ctx);
